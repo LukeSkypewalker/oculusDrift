@@ -2,23 +2,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class keyboardController : MonoBehaviour
+public class KeyboardController : MonoBehaviour
 {
-    public Transform bottom;
-    private Transform center;
-    public float k=1;
+    public float alpha;
+    public float rotationSpeed = 0.5f;
+
 	// Use this for initialization
 	void Start ()
 	{
-	    center = transform;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-	    float alpha = Input.GetAxis("Horizontal");
-        center.Rotate(0, 0, alpha);
-        bottom.Rotate(0, 0, k*-alpha);
-
+	    alpha = Input.GetAxis("Horizontal")*rotationSpeed;
 	}
 }
